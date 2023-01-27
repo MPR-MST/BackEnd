@@ -1,9 +1,6 @@
-<h2>Hey, It's me {{ $data->name }}</h2> 
+<h1>Mail von {{ $data->name }}, erhalten von unserer Website.</h1>
 <br>
-    
-<strong>User details: </strong><br>
-<strong>Name: </strong>{{ $data->name }} <br>
-<strong>Email: </strong>{{ $data->email }} <br>
-<!-- <strong>Phone: </strong>{{ $data->phone }} <br>
-     <strong>Subject: </strong>{{ $data->subject }} <br> -->
-<strong>Message: </strong>{{ $data->message }} <br><br>
+<h2><strong>Angaben zum Benutzer: </strong></h2>
+<i><strong>Name:  </strong></i>{{ $data->name }} <br>
+<i><strong>Email:  </strong></i>{{ $data->email }} <br>
+<i><strong>Nachricht:  </strong></i>{{ $data->message }}
