@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FacebookPostController;
+use App\Http\Controllers\CookiesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,5 @@ Route::prefix('facebookPosts')->middleware('throttle:10')->group(function () {
     Route::put('/{post}', [FacebookPostController::class, 'update']);
     Route::delete('/{post}', [FacebookPostController::class, 'delete']); //api/facebookPosts/23
 });
+
+Route::post('cookies', [CookiesController::class, 'postCookies'])->name('cookies.store');
