@@ -1,7 +1,7 @@
 <?php
   
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use App\Models\Contact;
   
@@ -36,5 +36,19 @@ class ContactController extends Controller
   
         return redirect()->back()
                          ->with(['success' => 'Thank you for contact us. We will contact you shortly.']);
+    }
+
+    public function getAll(Request $request)
+    {
+        return response()->json(Contact::all());
+    }
+
+    public function get(Contact $contact)
+    {
+        return response()->json($contact);
+    }
+
+    public function delete (){
+
     }
 }

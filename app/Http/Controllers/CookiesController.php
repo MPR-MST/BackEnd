@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class CookiesController extends Controller
 {
+
+    public function getAll(Request $request)
+    {
+        return response()->json(Cookie::all());
+    }
+
+    public function get(Cookie $cookies)
+    {
+        return response()->json($cookies);
+    }
+
     /**
      * @param \Illuminate\Http\Request $request
      * @return mixed
@@ -19,7 +30,6 @@ class CookiesController extends Controller
        $cookies-> browser = request()->header('User-Agent');
        $cookies->save();
 
-       return response()->json($cookies); 
-       
+       return response()->json($cookies);  
     }
 }
