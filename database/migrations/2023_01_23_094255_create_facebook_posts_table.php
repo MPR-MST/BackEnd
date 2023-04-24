@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("date",50)->nullable();
             $table->string("url",255)->nullable();
             $table->boolean("active")->default(true);
-            $table->text("content");
+            $table->text("content")->nullable();
             $table->timestamps();
             /*  It is a way of performing a logical deletion of records instead of physically removing them from the database, 
                 allowing the deleted records to be recovered if necessary.*/

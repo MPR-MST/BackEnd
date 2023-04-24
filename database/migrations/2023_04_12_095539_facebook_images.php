@@ -10,11 +10,7 @@ return new class extends Migration
     {
         Schema::create('facebookImages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('route');
-            $table->string('type');
-            $table->integer('size');
-            $table->string('description');
             $table->foreignId('facebook_posts_id')->references('id')->on('facebook_posts'); 
             $table->timestamps();
         });

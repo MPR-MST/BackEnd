@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class FacebookPost extends Model
 {
-    protected $fillable = ['title', 'date', 'url', 'active', 'content', 'image'];
+    protected $fillable = ['tittle', 'date', 'url', 'active', 'content'];
 
-    public function image(){
-        //relation with images
+    public function imagesFacebook(){
+        return $this->hasMany(ImagesFacebook::class);
     }
 
-    public function videos(){
-        //relation with videos
-    }
+    //public function videosFacebook(){
+    //    return $this->hasMany(VideosFacebook::class);
+    //}
 }

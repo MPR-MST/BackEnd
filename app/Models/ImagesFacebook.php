@@ -9,7 +9,14 @@ class ImagesFacebook extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'route', 'type', 'size', 'description', 'facebook_posts_id'];
+    protected $table = 'facebookImages';
+
+    protected $fillable = [
+    'name', 
+    'route', 
+    'type', 
+    'size', 
+    'facebook_posts_id'];
 
     public function facebookPost()
     {

@@ -13,7 +13,7 @@ class FacebookPostController extends Controller
      */
     public function getAll(Request $request)
     {
-        return response()->json(FacebookPost::all());
+        return response()->json(FacebookPost::all()->load("imagesFacebook"));
     }
 
     /**
@@ -23,7 +23,7 @@ class FacebookPostController extends Controller
     public function get(FacebookPost $post)
     {
         //$post->load('images', 'videos.comments');
-        return response()->json($post);
+        return response()->json($post->load("imagesFacebook"));
     }
 
     /**
