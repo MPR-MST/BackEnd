@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ImagesFacebook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImagesFacebookController extends Controller
 {
@@ -34,9 +35,15 @@ class ImagesFacebookController extends Controller
     return response()->json(['message' => 'No image was uploaded']);
   }
 
-  public function getAll(Request $request)
-    {
-        return response()->json(ImagesFacebook::all());
-    }
+  public function getAll(Request $request) {
+    $images = ImagesFacebook::all()->map(function ($image) {
+        $url = asset(Storage::url($image->route));
+        $image->url = $url;
+        unset($image->route);
+        return $image;
+    });
+    
+    return response()->json($images);
+  }
 
 }
