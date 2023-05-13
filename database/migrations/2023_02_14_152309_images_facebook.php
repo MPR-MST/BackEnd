@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('route');
             $table->string('type');
             $table->integer('size');
-            $table->string('description');
             $table->foreignId('facebook_posts_id')->references('id')->on('facebook_posts'); 
             $table->timestamps();
         });
