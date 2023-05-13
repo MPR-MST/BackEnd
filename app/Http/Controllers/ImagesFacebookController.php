@@ -11,11 +11,22 @@ class ImagesFacebookController extends Controller
   {
       // Verifies if the image file is present in the request
     if ($request->hasFile('image')) {
+
       // Stores the image in the "public/images" folder and saves the path in the application
       $image = $request->file('image')->store('public/images');
       $request->request->add(['route' => $image]);
+
+      $sizeInKB = $request->file('image')->getSize();
+
       // Creates a new "ImagesFacebook" object and fills it with the request data
-      $image = ImagesFacebook::create($request -> all());
+      $image = ImagesFacebook::create([
+        'name' => $request->file('image')->getClientOriginalName(),
+        'route' => $request->route,
+        'size' => $sizeInKB,
+        'facebook_posts_id' => $request->input('facebook_posts_id'),
+        'type' => $request->file('image')->getClientOriginalExtension(),
+      ]);
+
       // Returns a JSON response containing the created "image" object
       return response()->json(['image' => $image]);
     }
