@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('facebookImages', function (Blueprint $table) {
+        Schema::create('facebook_images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('route');
