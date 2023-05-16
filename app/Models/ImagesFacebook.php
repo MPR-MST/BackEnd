@@ -9,7 +9,7 @@ class ImagesFacebook extends Model
 {
     use HasFactory;
 
-    protected $table = 'facebookImages';
+    protected $table = 'facebook_images';
 
     protected $fillable = [
     'name', 

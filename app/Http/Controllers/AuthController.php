@@ -52,6 +52,3 @@ class AuthController extends Controller
         }
     }
 }
-
-//Por qué se generan 2 tokens de autenticación, 
-//no se supone que se genera un token 2 usuario y ese se guarda en cookies o storage?
