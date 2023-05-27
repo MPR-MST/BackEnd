@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FacebookPostRequest;
 use App\Models\FacebookPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FacebookPostController extends Controller
 {
@@ -13,7 +14,15 @@ class FacebookPostController extends Controller
      */
     public function getAll(Request $request)
     {
-        return response()->json(FacebookPost::all());
+        $posts = FacebookPost::join('facebook_images', 'facebook_posts.id', '=', 'facebook_images.facebook_posts_id')
+            ->select('facebook_posts.*', 'facebook_images.route as imgFacebook')
+            ->get()->map(function ($image) {
+                $url = asset(Storage::url($image->imgFacebook));
+                $image->urlFacebook = $url;
+                unset($image->imgFacebook);
+                return $image;
+            });
+        return response()->json($posts);
     }
 
     /**
@@ -69,7 +78,8 @@ class FacebookPostController extends Controller
      * @param FacebookPost
      * $post --> Post's id wich want to see
      */
-    public function delete(FacebookPost $post){
+    public function delete(FacebookPost $post)
+    {
         $post->delete();
         return response()->json($post);
     }

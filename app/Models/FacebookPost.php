@@ -9,7 +9,7 @@ class FacebookPost extends Model
     protected $fillable = ['tittle', 'date', 'url', 'active', 'content'];
 
     public function imagesFacebook(){
-        return $this->hasMany(ImagesFacebook::class);
+        return $this->hasOne(ImagesFacebook::class, "facebook_posts_id");
     }
 
     //public function videosFacebook(){
