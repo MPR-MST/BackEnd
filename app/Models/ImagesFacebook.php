@@ -18,8 +18,8 @@ class ImagesFacebook extends Model
     'size', 
     'facebook_posts_id'];
 
-    public function facebookPost()
-    {
-        return $this->belongsTo(FacebookPost::class);
-    }
+    // public function facebookPost()
+    // {
+    //     return $this->belongsTo(FacebookPost::class,'facebook_posts_id');
+    // }
 }
