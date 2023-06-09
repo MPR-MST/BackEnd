@@ -15,7 +15,6 @@ Route::get('hello', function () {
     // dump($fb);
 
     $fb1 = FacebookPost::with('imagesFacebook')->get();
-    dump($fb1);
     
 
 

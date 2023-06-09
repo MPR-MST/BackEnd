@@ -26,7 +26,7 @@ class ImagesFacebookController extends Controller
             $image = ImagesFacebook::create([
                 'name' => $request->file('image')->getClientOriginalName(),
                 'route' => $request->input('route'),
-                'size' => $sizeInKB, //$request->file('image')->getSize(); --> por qué no se pone esto directamente?
+                'size' => $sizeInKB,
                 'facebook_posts_id' => $request->input('facebook_posts_id'),
                 'type' => $request->file('image')->getClientOriginalExtension(),
             ]);
