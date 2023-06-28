@@ -21,7 +21,19 @@ class FacebookPostController extends Controller
                 $image->urlFacebook = $url;
                 unset($image->imgFacebook);
                 return $image;
+            })->map(function ($object) {
+                $fecha = $object->date;
+                $meses = array("Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic");
+                $fecha_timestamp = strtotime($fecha);
+                setlocale(LC_TIME, 'es_ES');
+                $mes = $meses[(int)date('m', $fecha_timestamp) - 1];
+                $fecha_formateada = date('d', $fecha_timestamp) . " de " . $mes . " de " . date('y', $fecha_timestamp);
+                $object->date = $fecha_formateada;
+                return $object;
+
             });
+
+
         return response()->json($posts);
     }
 

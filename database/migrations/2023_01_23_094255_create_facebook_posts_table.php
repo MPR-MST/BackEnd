@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('facebook_posts', function (Blueprint $table) {
             $table->id();
             $table->string("tittle",255)->nullable();
-            $table->string("date",50)->nullable();
+            $table->date("date",50)->nullable();
             $table->string("url",255)->nullable();
             $table->boolean("active")->default(true);
             $table->text("content")->nullable();
