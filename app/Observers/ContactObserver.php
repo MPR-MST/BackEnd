@@ -23,6 +23,7 @@ class ContactObserver
             //Log::info('contacto:', ['contact'=>$contact]);
             $mailContact = new ContactMail($contact);
             //Default email
+            //Cambiar correo
             Mail::to('migporuiz@gmail.com')->send($mailContact);
             Log::info('Email sended ok');
         } catch (\Exception $e) {
