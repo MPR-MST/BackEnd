@@ -18,7 +18,7 @@ class ContactObserver
     
     public function created(Contact $contact)
     {
-
+        
         try {
             //Log::info('contacto:', ['contact'=>$contact]);
             $mailContact = new ContactMail($contact);

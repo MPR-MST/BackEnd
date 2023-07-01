@@ -34,11 +34,13 @@ Route::prefix('facebookImages')->middleware('throttle:10')->group(function () {
     //Route::middleware('auth:sanctum')->delete('/{image}', [ImagesFacebookController::class, 'delete']); //api/facebookImages/23
 });
 
-Route::prefix('contact-us')->middleware('throttle:10')->group(function () {
+Route::post('contact-us/store', [ContactController::class, 'store'])->name('contact.us.store');
+
+/*Route::prefix('contact-us')->middleware('throttle:10')->group(function () {
     Route::middleware('auth:sanctum')->get('/list', [ContactController::class, 'getAll']); //api/contact-us/list
     Route::middleware('auth:sanctum')->get('/{contact}', [ContactController::class, 'get']); //api/contact-us/23
     Route::middleware('auth:sanctum')->delete('/{contact}', [ContactController::class, 'delete']); //api/contact-us/23
-});
+});*/
 
 Route::prefix('cookies')->middleware('throttle:10')->group(function () {
     Route::middleware('auth:sanctum')->get('/list', [CookiesController::class, 'getAll']); //api/cookies/list

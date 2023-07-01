@@ -21,6 +21,3 @@ Route::get('hello', function () {
     return 0;
 });
 // para clase
-
-
-Route::post('contact-us/store', [ContactController::class, 'store'])->name('contact.us.store');
